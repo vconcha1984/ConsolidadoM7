@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} ELIMINAR LABORATORIO {% endblock %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-center align-items-center">
+        <form method="post" class="w-50 border p-4 rounded shadow bg-light">
+            <h2 class="text-center mb-4 text-danger">¿Está seguro de eliminar el Laboratorio <strong>"{{ lab_delete.nombre }}"</strong>?</h2>
+            {% csrf_token %}
+            <div class="text-center">
+                <button type="submit" class="btn btn-danger w-45 me-2">Eliminar</button>
+                <a href="{% url 'laboratorio:index' %}" class="btn btn-secondary w-45">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

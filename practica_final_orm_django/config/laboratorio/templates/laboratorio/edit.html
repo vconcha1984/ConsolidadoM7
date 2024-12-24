@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} EDITAR LABORATORIO {% endblock %}
+
+{% block content %}
+
+    <h2 class="text-center mb-4">Actualizar laboratorio "{{ lab.nombre}}"</h2>
+    <div class="container d-flex justify-content-center">
+        <form method="post" class="w-50 border p-4 rounded shadow">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="mb-3">
+                    <label for="{{ form.nombre.id_for_label }}" class="form-label">Laboratorio:</label>
+                    {{ form.nombre }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.ciudad.id_for_label }}" class="form-label">Ciudad:</label>
+                    {{ form.ciudad }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.pais.id_for_label }}" class="form-label">País:</label>
+                    {{ form.pais }}
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-warning w-100">Actualizar Laboratorio</button>
+                </div>
+            </div>
+            <div class="text-center">
+                <br>
+                <a href="{% url 'laboratorio:index' %}"><--Regresar</a>
+            </div>
+        </form>
+    </div>
+    
+{% endblock %}

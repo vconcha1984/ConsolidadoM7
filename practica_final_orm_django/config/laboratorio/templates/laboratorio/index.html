@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} PRODUCTOS FARMACÉUTICOS {% endblock %}
+
+{% block content %}
+
+    <h2>Información de Laboratorios</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>País</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lab in laboratorios %}
+                <tr>
+                    <td>{{ lab.nombre }}</td>
+                    <td>{{ lab.ciudad }}</td>
+                    <td>{{ lab.pais }}</td>
+                    <td><a href="{% url 'laboratorio:edit' lab.id %}">Actualizar</td>
+                    <td><a href="{% url 'laboratorio:delete' lab.id %}">Eliminar</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No existen Laboratorios en este momento</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h5>
+        Usted ha visitado esta pagina {{ contador_visitas }} veces
+    </h5>
+    
+{% endblock %}

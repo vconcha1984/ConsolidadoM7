@@ -1,0 +1,22 @@
+>>> from laboratorio.models import Laboratorio, DirectorGeneral, Producto
+>>>
+>>> laboratorios = Laboratorio.objects.all()
+>>> print("Laboratorios:", laboratorios)
+Laboratorios: <QuerySet [<Laboratorio: Laboratorio1>, <Laboratorio: Laboratorio2>, <Laboratorio: Laboratorio3>]>
+>>> directores = DirectorGeneral.objects.all()
+>>> print("Directores Generales:", directores)
+Directores Generales: <QuerySet [<DirectorGeneral: Director General 1 - Laboratorio1>, <DirectorGeneral: Director General 2 - Laboratorio2>, <DirectorGeneral: Director General 3 - Laboratorio3>]>
+>>> productos = Producto.objects.all()
+>>> print("Productos:", productos)
+Productos: <QuerySet [<Producto: Producto 1 - Laboratorio1>, <Producto: Producto 2 - Laboratorio2>, <Producto: Producto 3 - Laboratorio3>]>
+
+>>> producto = Producto.objects.get(nombre='Producto 1')
+>>> print("Laboratorio del Producto 1:", producto.laboratorio)
+Laboratorio del Producto 1: Laboratorio1
+
+>>> print(productos_ordenados)  
+<QuerySet [<Producto: Producto 1 - Laboratorio1>, <Producto: Producto 2 - Laboratorio2>, <Producto: Producto 3 - Laboratorio3>]>
+
+>>> producto_laboratorio = Producto.objects.values_list('laboratorio__nombre') 
+>>> print(producto_laboratorio)
+<QuerySet [('Laboratorio1',), ('Laboratorio2',), ('Laboratorio3',)]
